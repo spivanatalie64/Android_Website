@@ -1,46 +1,109 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { HiMenu, HiX } from "react-icons/hi";
 
-function NavItem({ label, href }: { label: string; href: string }) {
+function NavItem({ label, href, isActive, onClick }: { label: string; href: string; isActive: boolean; onClick?: () => void }) {
+  const MotionDiv = motion.div as any;
   return (
-    <a
+    <Link
       href={href}
-      className="
-        relative text-gray-300 hover:text-white 
-        transition
-        after:absolute after:left-0 after:-bottom-1 
-        after:h-[2px] after:w-0 
-        after:bg-gradient-to-r from-neonBlue to-neonPink
-        hover:after:w-full after:transition-all
-      "
+      onClick={onClick}
+      className={`
+        relative transition-colors duration-300
+        ${isActive ? "text-neonBlue" : "text-gray-300 hover:text-white"}
+      `}
     >
       {label}
-    </a>
+      {isActive && (
+        <MotionDiv
+          layoutId="activeTab"
+          className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-neonBlue to-neonPink"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        />
+      )}
+    </Link>
   );
 }
 
 export function Navbar() {
+  const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+  const MotionNav = motion.nav as any;
+  const MotionDiv = motion.div as any;
+
+  const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "Downloads", href: "/downloads" },
+    { label: "Community", href: "/community" },
+    { label: "Blog", href: "/blog" },
+    { label: "About", href: "/about" },
+    { label: "Reference", href: "/reference" },
+  ];
+
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="
-        fixed top-4 left-1/2 transform -translate-x-1/2 
-        bg-black/30 backdrop-blur-xl 
-        border border-white/10 
-        rounded-2xl px-8 py-3 z-50
-        flex gap-6 text-white
-      "
-    >
-      <NavItem label="Home" href="/" />
-      <NavItem label="Downloads" href="/downloads" />
-      <NavItem label="Community" href="/community" />
-      <NavItem label="Blog" href="/blog" />
-      <NavItem label="About" href="/about" />
-      <NavItem label="Reference" href="/reference" />
-    </motion.nav>
+    <>
+      {/* Desktop Navbar */}
+      <MotionNav
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="
+          hidden md:flex
+          fixed top-4 left-1/2 transform -translate-x-1/2 
+          bg-black/30 backdrop-blur-xl 
+          border border-white/10 
+          rounded-2xl px-8 py-3 z-50
+          gap-6 text-white items-center
+        "
+      >
+        {navLinks.map((link) => (
+          <NavItem 
+            key={link.href} 
+            label={link.label} 
+            href={link.href} 
+            isActive={pathname === link.href} 
+          />
+        ))}
+      </MotionNav>
+
+      {/* Mobile Navbar Toggle */}
+      <div className="md:hidden fixed top-4 right-4 z-50">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="p-2 bg-black/50 backdrop-blur-md border border-white/10 rounded-lg text-white"
+        >
+          {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <MotionDiv
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-40 bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden"
+          >
+            {navLinks.map((link) => (
+              <NavItem 
+                key={link.href} 
+                label={link.label} 
+                href={link.href} 
+                isActive={pathname === link.href}
+                onClick={() => setIsOpen(false)}
+              />
+            ))}
+          </MotionDiv>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
