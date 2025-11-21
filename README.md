@@ -51,8 +51,41 @@ components/           # Reusable neon-themed UI primitives
 - **GlowHeading, SectionDivider, AuroraPanel, GlassCard, FeatureCard** and friends provide a consistent neon glassmorphism toolkit.
 - **ReferenceGrid** showcases every component in one route for quick QA and experimentation.
 
+## Deployment
+
+**Target Platform**: Cloudflare Pages + Workers
+
+**Why Cloudflare**:
+- Global edge network (300+ data centers)
+- Unlimited bandwidth on free tier
+- Built-in DDoS protection and security
+- Automatic CI/CD from Git
+- Preview deployments for every PR
+- Workers for serverless API routes
+- R2 for ISO file hosting (future)
+- D1 for edge database (future)
+
+**Deploy to Cloudflare Pages**:
+1. Connect your Git repository to Cloudflare Pages
+2. Configure build settings:
+   - Framework: Next.js
+   - Build command: `npm run build`
+   - Build output: `.next`
+3. Push to main branch to deploy
+
 ## Roadmap to MVP
-- **Foundation**: Finalize component kit, Tailwind theme, and base routes (current milestone).
-- **Content Pass**: Replace placeholder imagery and copy with finalized AcreetionOS assets, wire up Navbar with `next/link`, add route-level metadata.
-**Interactivity & Metrics**: Integrate newsletter/community CTAs, add CMS/data fetching for blog + downloads, embed analytics.
-- **MVP Launch**: Polish responsive states, performance audit, deploy to production (Vercel or preferred platform), announce AcreetionOS site MVP.
+
+See [MVP-ROADMAP.md](MVP-ROADMAP.md) for detailed milestones.
+
+- **Milestone 1-4**: Core functionality (SEO, assets, downloads, community)
+- **Milestone 5-9**: Content and polish (about, blog, metrics, performance)
+- **Milestone 10**: Launch preparation
+- **Milestone 11**: Visual effects enhancement (post-MVP)
+
+## Documentation
+
+- **[CLAUDE.md](CLAUDE.md)** - Instructions for Claude Code
+- **[STYLE-GUIDE.md](STYLE-GUIDE.md)** - Brand and design system
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Technical architecture
+- **[MVP-ROADMAP.md](MVP-ROADMAP.md)** - Development roadmap
+- **[original-website-components.md](original-website-components.md)** - Original site audit

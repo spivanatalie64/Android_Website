@@ -1,0 +1,64 @@
+# Cloudflare Workers Configuration for AcreetionOS Website
+# Documentation: https://developers.cloudflare.com/workers/wrangler/configuration/
+
+name = "acreetionos-website"
+compatibility_date = "2024-01-01"
+main = "workers/index.ts"
+
+# Cloudflare Pages configuration
+# Pages are deployed automatically via Git integration
+# This file is primarily for Workers (API routes)
+
+# Workers Routes (if using Workers in addition to Pages)
+# Uncomment when adding API endpoints
+# [env.production]
+# routes = [
+#   { pattern = "acreetionos.org/api/*", zone_name = "acreetionos.org" }
+# ]
+
+# [env.preview]
+# routes = [
+#   { pattern = "preview.acreetionos.org/api/*", zone_name = "acreetionos.org" }
+# ]
+
+# KV Namespaces for download tracking and caching
+# Uncomment when implementing download metrics
+# [[kv_namespaces]]
+# binding = "DOWNLOADS_KV"
+# id = "your-kv-namespace-id-here"
+# preview_id = "your-preview-kv-namespace-id-here"
+
+# D1 Database for blog posts and structured data
+# Uncomment when implementing blog/CMS
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "acreetionos-production"
+# database_id = "your-d1-database-id-here"
+# preview_database_id = "your-preview-d1-database-id-here"
+
+# R2 Storage for ISO files and large assets
+# Uncomment when hosting ISO files on R2
+# [[r2_buckets]]
+# binding = "ASSETS"
+# bucket_name = "acreetionos-assets"
+# preview_bucket_name = "acreetionos-assets-preview"
+
+# Environment variables (secrets should be set via `wrangler secret put`)
+# [vars]
+# ENVIRONMENT = "production"
+
+# Analytics Engine for custom metrics
+# Uncomment to enable Workers Analytics
+# [analytics_engine_datasets]
+# binding = "ANALYTICS"
+
+# Durable Objects (future use for real-time features)
+# [[durable_objects.bindings]]
+# name = "CHAT"
+# class_name = "ChatRoom"
+# script_name = "chat-worker"
+
+# Service bindings (if using multiple Workers)
+# [[services]]
+# binding = "DISCORD_API"
+# service = "discord-stats-worker"
