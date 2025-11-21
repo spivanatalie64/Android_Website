@@ -8,6 +8,13 @@ import { SectionDivider } from "@/components/SectionDivider";
 import { Navbar } from "@/components/Navbar";
 import { PageFade } from "@/components/PageFade";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "AcreetionOS | The Future of Arch-Based Computing",
+  description: "AcreetionOS is a modern, user-friendly Arch-based Linux distribution designed for everyone from beginners to power users.",
+};
+
 export default function Home() {
   return (
     <AuroraBackground>
