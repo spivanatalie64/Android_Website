@@ -4,8 +4,9 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export function NeonButton({ children }: { children: React.ReactNode }) {
+  const MotionButton = motion.button as any;
   return (
-    <motion.button
+    <MotionButton
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.98 }}
       className="
@@ -16,6 +17,6 @@ export function NeonButton({ children }: { children: React.ReactNode }) {
       "
     >
       {children}
-    </motion.button>
+    </MotionButton>
   );
 }

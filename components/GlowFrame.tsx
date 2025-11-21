@@ -4,8 +4,9 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export function GlowFrame({ children }: { children: React.ReactNode }) {
+  const MotionDiv = motion.div as any;
   return (
-    <motion.div
+    <MotionDiv
       animate={{
         boxShadow: [
           "0 0 20px rgba(0,200,255,0.4)",
@@ -17,6 +18,6 @@ export function GlowFrame({ children }: { children: React.ReactNode }) {
       className="p-[2px] rounded-2xl bg-gradient-to-r from-neonBlue via-neonPink to-neonPurple"
     >
       <div className="rounded-2xl bg-black/60 p-6">{children}</div>
-    </motion.div>
+    </MotionDiv>
   );
 }
