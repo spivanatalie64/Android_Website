@@ -373,6 +373,12 @@ Active:
   box-shadow: 0 0 15px rgba(0, 207, 255, 0.3);
 ```
 
+#### Responsive Navbar Behavior
+
+- Desktop (`md` and up): Show the full floating navbar centered at the top with horizontal links.
+- Mobile (below `md`): Show a hamburger toggle button in the top-right that opens a full-screen, glassmorphic navigation overlay.
+- When a mobile nav link is clicked, the overlay closes to return focus to the page content.
+
 ### Dividers
 
 **Section Divider**

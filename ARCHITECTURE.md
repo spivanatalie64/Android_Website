@@ -175,7 +175,9 @@ Every route follows a consistent layout pattern:
 **1. Layout Components**
 - `AuroraBackground` - Full-page animated gradient + starfield
 - `PageFade` - Page transition wrapper using Framer Motion
-- `Navbar` - Fixed floating navigation bar
+- `Navbar` - Fixed floating navigation bar with:
+  - Desktop layout (`md` and up): inline nav links with active route highlighting.
+  - Mobile layout (below `md`): hamburger toggle that opens a full-screen Framer Motion overlay menu reusing the same nav links.
 
 **2. Content Blocks**
 - `Hero` - Landing page hero section
