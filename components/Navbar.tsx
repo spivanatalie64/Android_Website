@@ -75,8 +75,12 @@ export function Navbar() {
       {/* Mobile Navbar Toggle */}
       <div className="md:hidden fixed top-4 right-4 z-50">
         <button
+          type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 bg-black/50 backdrop-blur-md border border-white/10 rounded-lg text-white"
+          className="p-2 bg-black/50 backdrop-blur-md border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-neonBlue focus:ring-offset-2 focus:ring-offset-black"
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav"
         >
           {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
         </button>
@@ -86,6 +90,9 @@ export function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <MotionDiv
+            id="mobile-nav"
+            role="navigation"
+            aria-label="Mobile main navigation"
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
