@@ -16,7 +16,7 @@
 - [ ] Add JSON-LD structured data for organization/software
 - [ ] Create `robots.txt` and `sitemap.xml`
 - [ ] Add favicon and OpenGraph images
-- [ ] Convert Navbar `<a>` tags to Next.js `<Link>` components
+- [x] Convert Navbar `<a>` tags to Next.js `<Link>` components
 - [ ] Add active route highlighting in navigation
 - [ ] Add mobile hamburger menu
 - [ ] Test responsive navigation on all breakpoints
