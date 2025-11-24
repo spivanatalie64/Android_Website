@@ -13,18 +13,22 @@ function NavItem({ label, href, isActive, onClick }: { label: string; href: stri
       href={href}
       onClick={onClick}
       className={`
-        relative transition-colors duration-300
-        ${isActive ? "text-neonBlue" : "text-gray-300 hover:text-white"}
+        relative transition-all duration-300 px-2 py-1 rounded-md
+        ${isActive 
+          ? "text-neonBlue font-semibold" 
+          : "text-gray-300 hover:text-white hover:bg-white/5"
+        }
       `}
+      aria-current={isActive ? "page" : undefined}
     >
       {label}
       {isActive && (
         <MotionDiv
           layoutId="activeTab"
-          className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-neonBlue to-neonPink"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
+          className="absolute -bottom-1 left-2 right-2 h-[2px] bg-gradient-to-r from-neonBlue via-neonPink to-neonBlue rounded-full shadow-[0_0_8px_rgba(0,207,255,0.6)]"
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
         />
       )}
     </Link>
@@ -45,6 +49,17 @@ export function Navbar() {
     { label: "About", href: "/about" },
     { label: "Reference", href: "/reference" },
   ];
+
+  // Normalize pathname for comparison (handle trailing slashes)
+  const normalizePath = (path: string) => {
+    if (!path || path === "/") return "/";
+    return path.replace(/\/+$/, "");
+  };
+  const isActiveRoute = (href: string) => {
+    const normalizedPathname = normalizePath(pathname);
+    const normalizedHref = normalizePath(href);
+    return normalizedPathname === normalizedHref;
+  };
 
   return (
     <>
@@ -67,7 +82,7 @@ export function Navbar() {
             key={link.href} 
             label={link.label} 
             href={link.href} 
-            isActive={pathname === link.href} 
+            isActive={isActiveRoute(link.href)} 
           />
         ))}
       </MotionNav>
@@ -104,7 +119,7 @@ export function Navbar() {
                 key={link.href} 
                 label={link.label} 
                 href={link.href} 
-                isActive={pathname === link.href}
+                isActive={isActiveRoute(link.href)}
                 onClick={() => setIsOpen(false)}
               />
             ))}
