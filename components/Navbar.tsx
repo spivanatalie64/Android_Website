@@ -51,7 +51,10 @@ export function Navbar() {
   ];
 
   // Normalize pathname for comparison (handle trailing slashes)
-  const normalizePath = (path: string) => path === "/" ? "/" : path.replace(/\/$/, "");
+  const normalizePath = (path: string) => {
+    if (!path || path === "/") return "/";
+    return path.replace(/\/+$/, "");
+  };
   const isActiveRoute = (href: string) => {
     const normalizedPathname = normalizePath(pathname);
     const normalizedHref = normalizePath(href);
