@@ -12,8 +12,8 @@ export function Hero() {
         polished, and approachable for everyday users, power users, and creators.
       </p>
       <div className="flex flex-wrap justify-center gap-4 mt-4">
-        <NeonButton>Download AcreetionOS</NeonButton>
-        <NeonButton>Join the Community</NeonButton>
+        <NeonButton href="/downloads">Download AcreetionOS</NeonButton>
+        <NeonButton href="/community">Join the Community</NeonButton>
       </div>
     </section>
   );

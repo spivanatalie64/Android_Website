@@ -43,9 +43,9 @@ export default function Community() {
         <div className="max-w-5xl mx-auto px-10 py-32">
           <GlowHeading>Join the Community</GlowHeading>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mt-10">
-            <IconTile icon={<FaDiscord />} label="Discord" />
-            <IconTile icon={<FaGithub />} label="GitHub" />
-            <IconTile icon={<FaFacebook />} label="Facebook" />
+            <IconTile icon={<FaDiscord />} label="Discord" href="https://discord.gg/acreetionos" />
+            <IconTile icon={<FaGithub />} label="GitHub" href="https://github.com/acreetionos" />
+            <IconTile icon={<FaFacebook />} label="Facebook" href="https://facebook.com/acreetionos" />
           </div>
         </div>
       </PageFade>
