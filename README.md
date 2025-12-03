@@ -1,6 +1,6 @@
 # AcreetionOS Website
 
-A cinematic marketing site for AcreetionOS, an Arch-based Linux distribution that blends polished UX with neon aurora visuals. The project uses Next.js App Router with a reusable component kit so every route (home, downloads, community, blog, about, reference) stays cohesive while remaining easy to extend.
+A cinematic marketing site for [AcreetionOS](https://acreetionos.org), an Arch-based Linux distribution that blends polished UX with neon aurora visuals. The project uses Next.js App Router with a reusable component kit so every route (home, downloads, community, blog, about, reference) stays cohesive while remaining easy to extend. AcreetionOS GitHub Org and repository is [here](https://github.com/AcreetionOS-Linux).
 
 ## Tech Stack
 - Next.js 14 (App Router) + React 18
@@ -82,8 +82,13 @@ See [MVP-ROADMAP.md](MVP-ROADMAP.md) for detailed milestones.
 - **Milestone 10**: Launch preparation
 - **Milestone 11**: Visual effects enhancement (post-MVP)
 
+## Contributing
+
+We welcome contributions! Please see [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for guidelines on how to get started.
+
 ## Documentation
 
+- **[docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)** - Contributing guidelines
 - **[CLAUDE.md](CLAUDE.md)** - Instructions for Claude Code
 - **[STYLE-GUIDE.md](STYLE-GUIDE.md)** - Brand and design system
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** - Technical architecture
