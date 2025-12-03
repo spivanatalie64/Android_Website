@@ -6,6 +6,35 @@ import { SystemInfoCard } from "@/components/SystemInfoCard";
 import { Navbar } from "@/components/Navbar";
 import { PageFade } from "@/components/PageFade";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Downloads",
+  description:
+    "Download AcreetionOS ISO images. Choose from Cinnamon, Power Users, or Creators editions for your Arch-based Linux experience.",
+  openGraph: {
+    title: "Download AcreetionOS",
+    description:
+      "Download AcreetionOS ISO images. Choose from Cinnamon, Power Users, or Creators editions for your Arch-based Linux experience.",
+    url: "https://acreetionos.org/downloads",
+    siteName: "AcreetionOS",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Download AcreetionOS",
+    description:
+      "Download AcreetionOS ISO images. Choose from Cinnamon, Power Users, or Creators editions for your Arch-based Linux experience.",
+    images: ["/og-default.png"],
+  },
+};
+
 export default function Downloads() {
   return (
     <AuroraBackground>

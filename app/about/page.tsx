@@ -5,6 +5,35 @@ import { AuroraPanel } from "@/components/AuroraPanel";
 import { Navbar } from "@/components/Navbar";
 import { PageFade } from "@/components/PageFade";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn about AcreetionOS, an independent Arch-based Linux distribution focused on stability, polish, and approachability.",
+  openGraph: {
+    title: "About AcreetionOS",
+    description:
+      "Learn about AcreetionOS, an independent Arch-based Linux distribution focused on stability, polish, and approachability.",
+    url: "https://acreetionos.org/about",
+    siteName: "AcreetionOS",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About AcreetionOS",
+    description:
+      "Learn about AcreetionOS, an independent Arch-based Linux distribution focused on stability, polish, and approachability.",
+    images: ["/og-default.png"],
+  },
+};
+
 export default function About() {
   return (
     <AuroraBackground>

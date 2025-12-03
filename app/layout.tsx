@@ -4,6 +4,7 @@ import React from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://acreetionos.org"),
   title: {
     default: "AcreetionOS",
     template: "%s | AcreetionOS",
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "AcreetionOS",
     images: [
       {
-        url: "https://acreetionos.org/og-image.png",
+        url: "/og-default.png",
         width: 1200,
         height: 630,
       },
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AcreetionOS",
     description: "The Future of Arch-Based Computing",
-    images: ["https://acreetionos.org/og-image.png"],
+    images: ["/og-default.png"],
   },
 };
 

@@ -12,7 +12,29 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "AcreetionOS | The Future of Arch-Based Computing",
-  description: "AcreetionOS is a modern, user-friendly Arch-based Linux distribution designed for everyone from beginners to power users.",
+  description:
+    "AcreetionOS is a modern, user-friendly Arch-based Linux distribution designed for everyone from beginners to power users.",
+  openGraph: {
+    title: "AcreetionOS | The Future of Arch-Based Computing",
+    description:
+      "AcreetionOS is a modern, user-friendly Arch-based Linux distribution designed for everyone from beginners to power users.",
+    url: "https://acreetionos.org",
+    siteName: "AcreetionOS",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AcreetionOS | The Future of Arch-Based Computing",
+    description:
+      "AcreetionOS is a modern, user-friendly Arch-based Linux distribution designed for everyone from beginners to power users.",
+    images: ["/og-default.png"],
+  },
 };
 
 export default function Home() {

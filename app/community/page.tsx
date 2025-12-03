@@ -6,6 +6,35 @@ import { Navbar } from "@/components/Navbar";
 import { PageFade } from "@/components/PageFade";
 import { FaDiscord, FaGithub, FaFacebook } from "react-icons/fa";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Community",
+  description:
+    "Join the AcreetionOS community on Discord, GitHub, and Facebook. Connect with users and contributors.",
+  openGraph: {
+    title: "Join the AcreetionOS Community",
+    description:
+      "Join the AcreetionOS community on Discord, GitHub, and Facebook. Connect with users and contributors.",
+    url: "https://acreetionos.org/community",
+    siteName: "AcreetionOS",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Join the AcreetionOS Community",
+    description:
+      "Join the AcreetionOS community on Discord, GitHub, and Facebook. Connect with users and contributors.",
+    images: ["/og-default.png"],
+  },
+};
+
 export default function Community() {
   return (
     <AuroraBackground>
