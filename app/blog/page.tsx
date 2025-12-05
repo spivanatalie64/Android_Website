@@ -28,8 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AcreetionOS Blog",
-    description:
-      "Read the latest news, updates, and announcements from the AcreetionOS team.",
+    description: "Read the latest news, updates, and articles from the AcreetionOS team. Stay informed about releases, features, and community highlights.",
     images: ["/og-default.png"],
   },
 };
